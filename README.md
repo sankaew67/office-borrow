@@ -101,3 +101,34 @@ bun dev
 วิธีที่ง่ายที่สุดในการปรับใช้แอป Next.js คือการใช้ [แพลตฟอร์ม Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) จากผู้สร้าง Next.js
 
 ดูเอกสารประกอบการใช้งาน Next.js ของเรา (https://nextjs.org/docs/pages/building-your-application/deploying) เพื่อดูรายละเอียดเพิ่มเติม
+
+---
+
+## 🛠️ จัดทำโดย
+
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center"><strong>🪪 Name</strong></td>
+    <td align="center"><strong>🆔 StudentID</strong></td>
+  </tr>
+  <tr>
+    <td>สิงห์ 	ธีระศักดิ์</td>
+    <td>67136889</td>
+  </tr>
+  <tr>
+    <td>แสนแก้ว 	สุดมุข</td>
+    <td>67137024</td>
+  </tr>
+  <tr>
+    <td>สุชานาถ	บุญสาร</td>
+    <td>67155717</td>
+  </tr>
+
+</table>
+
+</div>
+<br>
+
+---
