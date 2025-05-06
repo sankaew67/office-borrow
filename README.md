@@ -104,7 +104,7 @@ bun dev
 
 ---
 
-## 🛠️ จัดทำโดย
+<h1 align="center">🛠️ จัดทำโดย</h1>
 
 <div align="center">
 
