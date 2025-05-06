@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client" // Default output location
+}
+
+datasource db {
+  provider = "sqlite" // เปลี่ยนเป็น sqlite
+  url      = "file:./dev.db" // ระบุ path ของไฟล์ database ที่ต้องการ
+}
+
+// Enum for device status for clarity and typo prevention
+enum DeviceStatus {
+  AVAILABLE // Available
+  BORROWED  // Currently borrowed
+  MAINTENANCE // Under maintenance (Example)
+  DISPOSED    // Disposed (Example)
+}
+
+// Enum for device type (optional but recommended)
+enum DeviceType {
+  LAPTOP
+  MONITOR
+  KEYBOARD
+  MOUSE
+  WEBCAM
+  DOCKING_STATION
+  OTHER // Other types
+}
+
+
+// prisma/schema.prisma
+
+model User {
+  id        String   @id @default(cuid()) // Using String CUID for better scalability
+  name      String
+  email     String   @unique
+  password  String   // Remember to HASH the password before saving!
+  devices   Device[] // Devices currently borrowed by this user
+
+  createdAt DateTime @default(now()) // Timestamp for creation
+  updatedAt DateTime @default(now()) @updatedAt // <-- Add @default(now()) here
+}
+
+
+model Device {
+  id            String   @id @default(cuid()) // Using String CUID
+  name          String   // Name or description, e.g., "Laptop Dell XPS 13"
+  type          DeviceType @default(OTHER) // Device type using the enum
+  serialNumber  String?  @unique // Serial number (recommended, should be unique), optional if some devices lack it
+  status        DeviceStatus @default(AVAILABLE) // Using the DeviceStatus enum
+
+  borrowerId    String?  // Foreign key to User ID (must be String like User.id)
+  borrower      User?    @relation(fields: [borrowerId], references: [id], onDelete: SetNull) // Relationship to User, set borrowerId to null if User is deleted
+
+  createdAt     DateTime @default(now()) // Timestamp for creation
+  updatedAt     DateTime @updatedAt      // Timestamp for last update
+}
